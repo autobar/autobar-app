@@ -53,7 +53,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
- 
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -70,7 +70,7 @@ group :test do
 end
 
 # for the applicant modal
-gem 'bootstrap', '~> 4.2.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'popper_js', '~> 1.14.5'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
