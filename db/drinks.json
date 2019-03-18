@@ -1,0 +1,105 @@
+{
+    "0":{
+        "name": "Screwdriver",
+        "ingredients":{
+            "liquors": {
+                "vodka": 2
+            },
+            "mixers": {
+                "orange juice": 5
+            }
+        }
+    },
+    "1":{
+        "name": "Jack and Coke",
+        "ingredients":{
+            "liquors": {
+                "jack daniels": 1
+            },
+            "mixers":{
+                "coke": 6
+            }
+        }
+    },
+    "2":{
+        "name": "Coke and Rum",
+        "ingredients":{
+            "liquors": {
+                "rum": 3
+            },
+            "mixers":{
+                "coke": 4
+            }
+        }
+    },
+    "3":{
+        "name": "Limey Dream",
+        "ingredients":{
+            "liquors": {
+                "vodka": 1
+            },
+            "mixers":{
+                "sprite": 3,
+                "lime juice": 3
+            }
+        }
+    },
+    "4":{
+        "name": "Gin and Tonic",
+        "ingredients":{
+            "liquors": {
+                "gin": 2
+            },
+            "mixers":{
+                "tonic water": 2,
+                "lime juice": 3
+            }
+        }
+    },
+    "5":{
+        "name": "Vodka and Tonic Water",
+        "ingredients":{
+            "liquors": {
+                "vodka": 2
+            },
+            "mixers":{
+                "tonic water": 5
+            }
+        }
+    },
+    "6":{
+        "name": "Moscow Rule",
+        "ingredients":{
+            "liquors": {
+                "vodka": 2
+            },
+            "mixers":{
+                "ginger beer": 2,
+                "lime juice": 3
+            }
+        }
+    },
+    "7":{
+        "name": "Mimosa",
+        "ingredients":{
+            "liquors": {
+                "champagne": 2
+            },
+            "mixers":{
+                "orange juice": 5
+            }
+        }
+    },
+    "8":{
+        "name": "White Russian",
+        "ingredients":{
+            "liquors": {
+                "vodka": 2
+            },
+            "mixers":{
+                "coffee": 3,
+                "cream": 2
+            }
+        }
+    }
+}
