@@ -1,0 +1,21 @@
+<h1><%= @drink.name %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h4><%= link_to "< Back to All Drinks", drinks_path %></h4>
+    <h3><%= link_to "Edit this drink", edit_drink_path(@drink) %></h3>
+    
+    <table>
+      <th>Name</th>
+      <th>Ingredients</th>
+      <th>Default?</th>
+      <th>Tag</th>
+      <tr>
+        <td><%= @drink.name %></td>
+        <td><%= "placeholder" %></td>
+        <td><%= @drink.default %></td>
+        <td><%= @drink.tag %></td>
+      </tr>
+    </table>
+  </div>
+</div>

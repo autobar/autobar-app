@@ -1,0 +1,26 @@
+<h1>All Drinks</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h3><%= link_to "Create a new drink", new_drink_path %></h3>
+    <table>
+      <th>Name</th>
+      <th>Ingredients</th>
+      <th>Default?</th>
+      <th>Tag</th>
+      <% @drinks.each do |drink| %>
+        <tr>
+          <td>
+            <%= link_to drink.name, drink %> 
+            | <%= link_to "edit", edit_drink_path(drink) %> 
+            | <%= link_to "delete", drink, method: :delete, 
+                  data: {confirm: "Are you sure you want to delete drink #{drink.name}? This cannot be undone." } %>
+          </td>
+          <td><%= "placeholder" %></td>
+          <td><%= drink.default %></td>
+          <td><%= drink.tag %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
