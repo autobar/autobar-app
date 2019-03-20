@@ -20,10 +20,12 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  template: template0 # added by dom
 
 development:
   <<: *default
   database: autobar
+  template: template0 # added by dom
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,6 +60,7 @@ development:
 test:
   <<: *default
   database: autobar_test
+  template: template0 # added by dom
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -83,3 +86,4 @@ production:
   database: autobar_prod
   username: autobar
   password: <%= ENV['AUTOBAR_DATABASE_PASSWORD'] %>
+  template: template0 # added by dom
