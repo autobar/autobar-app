@@ -44,7 +44,7 @@ class DrinksController < ApplicationController
   end
   
   def pick_drink
-    @drinks = Drink.all
+    @drinks = Drink.alphabetical
   end
   
   
