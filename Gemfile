@@ -30,9 +30,6 @@ gem 'figaro'
 # bulk import to database (for seeding)
 gem 'activerecord-import'
 
-# added by Dom for Bootstrap Sprockets
-gem 'bootstrap-sass','3.3.7'
-
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
