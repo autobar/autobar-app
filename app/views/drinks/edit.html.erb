@@ -5,6 +5,7 @@
     <h4><%= link_to "< Back to All Drinks", drinks_path %></h4>
   
     <%= form_for(@drink) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
     
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
