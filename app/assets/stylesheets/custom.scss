@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html {
+  font-size: large;
+}
+
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
