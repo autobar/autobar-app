@@ -32,6 +32,9 @@ class DrinksController < ApplicationController
   def update
     @drink = Drink.find(params[:id])
     @drink.update_attributes!(drink_params)
+    
+    @drink.image.attach(params[:image])
+    
     flash[:success] = "Drink #{@drink.name} successfully updated"
     redirect_to @drink
   end
@@ -53,6 +56,6 @@ private # ---------- PRIVATE ----------
   # whitelist all of the parameters passed in forms to create
   # or edit a Drink
   def drink_params
-    params.require(:drink).permit(:name, :ingredients, :default, :tag)
+    params.require(:drink).permit(:name, :ingredients, :default, :tag, :image)
   end
 end

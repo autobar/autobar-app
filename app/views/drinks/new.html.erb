@@ -10,6 +10,9 @@
       
       <%= f.label :tag %>
       <%= f.text_field :tag, class: 'form-control' %>
+      
+      <%= f.label :image %>
+      <%= f.file_field :image, class: 'form-control' %>
 
       <%= f.submit "Create new drink", class: "btn btn-primary" %>
     <% end %>
