@@ -43,6 +43,10 @@ class DrinksController < ApplicationController
     redirect_to drinks_path
   end
   
+  def pick_drink
+    @drinks = Drink.all
+  end
+  
   
 private # ---------- PRIVATE ----------
 
