@@ -4,12 +4,18 @@
   <div class="col-md-6 col-md-offset-3">
     <h3><%= link_to "Create a new drink", new_drink_path %></h3>
     <table>
+      <th>Image</th>
       <th>Name</th>
       <th>Ingredients</th>
       <th>Default?</th>
       <th>Tag</th>
       <% @drinks.each do |drink| %>
         <tr>
+          <td>
+            <% if drink.image.attached? %>
+              <%= image_tag drink.image, size: "100x100", alt: drink.name %>
+            <% end %>
+          </td>
           <td>
             <%= link_to drink.name, drink %> 
             | <%= link_to "edit", edit_drink_path(drink) %> 

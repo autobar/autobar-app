@@ -18,7 +18,7 @@ class DrinksController < ApplicationController
   end
 
   def index
-    @drinks = Drink.all
+    @drinks = Drink.alphabetical
   end
   
   def show
@@ -32,9 +32,6 @@ class DrinksController < ApplicationController
   def update
     @drink = Drink.find(params[:id])
     @drink.update_attributes!(drink_params)
-    
-    @drink.image.attach(params[:image])
-    
     flash[:success] = "Drink #{@drink.name} successfully updated"
     redirect_to @drink
   end
@@ -44,6 +41,13 @@ class DrinksController < ApplicationController
     @drink.destroy!
     flash[:success] = "Drink #{@drink.name} successfully deleted"
     redirect_to drinks_path
+  end
+  
+  def remove_image
+    @drink = Drink.find(params[:id])
+    @drink.image.purge
+    flash[:success] = "Successfully removed image from #{@drink.name}"
+    redirect_to edit_drink_path(@drink)
   end
   
   def pick_drink

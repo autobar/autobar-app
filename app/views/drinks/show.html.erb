@@ -6,11 +6,17 @@
     <h3><%= link_to "Edit this drink", edit_drink_path(@drink) %></h3>
     
     <table>
+      <th>Image</th>
       <th>Name</th>
       <th>Ingredients</th>
       <th>Default?</th>
       <th>Tag</th>
       <tr>
+        <td>
+          <% if @drink.image.attached? %>
+            <%= image_tag @drink.image, size: "100x100", alt: @drink.name %>
+          <% end %>
+        </td>
         <td><%= @drink.name %></td>
         <td><%= "placeholder" %></td>
         <td><%= @drink.default %></td>

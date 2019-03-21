@@ -13,13 +13,21 @@
       <%= f.label :tag %>
       <%= f.text_field :tag, class: 'form-control' %>
       
-      <%= f.label :image %>
-      <%= f.file_field :image, class: 'form-control' %>
+      <% unless @drink.image.attached? %>
+        <%= f.label :image %>
+        <%= f.file_field :image, class: 'form-control' %>
+      <% end %>
       
       <%= f.submit "Update", class: "btn btn-primary" %>
     <% end %>
-    
     <br />
+    
+    <% if @drink.image.attached? %>
+        <%= button_to "Remove current image", {action: "remove_image", id: @drink.id}, method: :post, 
+            class: "btn btn-danger" %>
+        <br />
+    <% end %>
+    
     <%= button_to "Delete drink", { action: "destroy" }, method: :delete,
         data: { confirm: "Are you sure you want to delete drink #{@drink.name}? This cannot be undone." },
         class: "btn btn-danger" %>

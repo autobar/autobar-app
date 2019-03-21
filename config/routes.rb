@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   
   get 'welcome/pickdrink'
   
+  post 'drink/remove_image', to: 'drinks#remove_image'
+  
   resources :drinks
 end
