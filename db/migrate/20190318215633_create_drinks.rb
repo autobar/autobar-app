@@ -5,7 +5,8 @@ class CreateDrinks < ActiveRecord::Migration[5.0]
       t.string :ingredients
       t.boolean :default
       t.string :tag
-
+      t.references :user, foreign_key: true
+      
       t.timestamps
     end
   end

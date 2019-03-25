@@ -1,8 +1,22 @@
 require "json"
-file = File.open(File.dirname(__FILE__) + '/drinks.json')
+drinkFile = File.open(File.dirname(__FILE__) + '/drinks.json')
+userFile = File.open(File.dirname(__FILE__) + '/users.json')
+drinkData = JSON.parse(drinkFile.read)
+userData = JSON.parse(userFile.read)
 
-data = JSON.parse(file.read)
-data.each do |key, value|
+userData.each do |key, value|
+    u = User.create({
+        name: value['name'],
+        phone_number: value['phone_number'],
+        drivers_license: value['drivers_license']
+    })
+    if value.key?('is_admin')
+        u.is_admin = value['is_admin']
+        u.save
+    end
+end
+
+drinkData.each do |key, value|
     d = Drink.create({
         name: value['name'],
         ingredients: value['ingredients'],

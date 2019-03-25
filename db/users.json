@@ -1,0 +1,13 @@
+{
+    "0":{
+        "name": "Ruby Rails",
+        "phone_number": "+13334445555",
+        "drivers_license": "19523424312",
+        "is_admin": true
+    },
+    "1":{
+        "name": "Angelica Pickles",
+        "phone_number": "+13234245225",
+        "drivers_license": "32452424310"
+    }
+}
