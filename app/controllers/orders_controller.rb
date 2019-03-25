@@ -2,16 +2,15 @@ class OrdersController < ApplicationController
   
   def show
     @order = Order.find(params[:id])
+    @recipes = Array.new
+    
+    @order.drinks.each do |drink|
+      @recipes << drink.ingredients
+    end
     
     respond_to do |format|
       format.html
-      format.json {
-        @recipes = Array.new
-        @order.drinks.each do |drink|
-          @recipes << drink.ingredients
-        end
-        render json: @recipes
-      }
+      format.json { render json: @recipes }
     end
   end
   
