@@ -3,5 +3,6 @@ class WelcomeController < ApplicationController
   end
   
   def pickdrink
+    @drinks = Drink.alphabetical
   end
 end
