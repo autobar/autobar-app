@@ -1,0 +1,23 @@
+<h1><%= "Order ##{@order.id}" %></h1>
+<h2><%= "Completed: #{@order.completed?}" %></h2>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    
+    <h3>Drinks in Order</h3>
+    <table>
+      <th>Drink No.</th>
+      <th>Liquors</th>
+      <th>Mixers</th>
+      <% index = 1 %>
+      <% @recipes.each do |recipe| %>
+        <tr>
+          <td><%= index %></td>
+          <td><%= recipe["liquors"] %></td>
+          <td><%= recipe["mixers"] %></td>
+        </tr>
+        <% index += 1 %>
+      <% end %>
+    </table>
+  </div>
+</div>
