@@ -5,4 +5,8 @@ class WelcomeController < ApplicationController
   def pickdrink
     @drinks = Drink.alphabetical
   end
+  
+  def login
+    redirect_to welcome_pickdrink_path
+  end
 end

@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+.pretty-block{
+    width: 300px;
+    padding: 10px;
+}
+.pretty-form, .pretty-form div{
+    position: relative;
+}
+.pretty-form input[type="text"]{
+    border: transparent;
+    position: relative;
+}
+.pretty-form div:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
+.mg-top-sm{
+    margin-top: 10px;
+}

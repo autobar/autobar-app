@@ -1,30 +1,21 @@
 
-<h1>Hello, Friend!</h1>
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="images/drinkmo.svg" id="icon" alt="User Icon" />
-    </div>
-
-    <!-- Login Form -->
-    <form>
-      <input type="text" id="your phone number" class="fadeIn second" name="number" placeholder="number">
-     <!-- <input type="submit" class="fadeIn fourth" value="Log In" > -->
-      <%= link_to "Pick a drink!", welcome_pickdrink_path %>
-    </form>
-
-
-
+<div style="display: flex; flex-wrap: flex; width: 100%; justify-content: space-around;">
+  <div class="pretty-block">
+    
   </div>
-
+  
+  <div class="pretty-block flex-col" style="justify-content: center;">
+    <%= form_for :creds, url: welcome_login_path, :html => {:class => "pretty-form"} do |form| %>
+      <div>
+        <%= form.text_field :drivers_license, :placeholder => "Drivers License #" %>
+      </div>
+      <%= form.submit "Submit", :class => "mg-top-sm" %>
+    <% end %>
+  </div>
+  
+  <div class="pretty-block flex-col" style="justify-content: flex-end; min-height: 250px;">
+    <h1>Hello, Friend!</h1>
+    <img src="images/drinkmo.svg" id="icon" alt="User Icon" />
+  </div>
 </div>
-
