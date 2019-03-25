@@ -1,6 +1,8 @@
 class Drink < ApplicationRecord
   serialize :ingredients
   
+  belongs_to :order
+  
   has_one_attached :image
   
   validates :name,  presence: true, length: { maximum: 100 }

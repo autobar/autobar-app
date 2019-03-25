@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   post 'drink/remove_image', to: 'drinks#remove_image'
   
   resources :drinks
+  resources :orders
 end
