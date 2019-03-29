@@ -7,6 +7,10 @@ class WelcomeController < ApplicationController
   end
   
   def login
-    redirect_to welcome_pickdrink_path
+    redirect_to welcome_menu_path
+  end
+  
+  def menu
+    
   end
 end

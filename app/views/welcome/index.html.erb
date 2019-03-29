@@ -1,11 +1,10 @@
-
-<!------ Include the above in your HEAD tag ---------->
-<div style="display: flex; flex-wrap: flex; width: 100%; justify-content: space-around;">
-  <div class="pretty-block">
-    
+<div style="display: flex; flex-wrap: wrap; width: 100%; justify-content: space-around;">
+  <div class="pretty-block flex-col fcol-3" style="justify-content: flex-end; min-height: 250px;">
+    <h1>Hello, Friend!</h1>
+    <img src="images/drinkmo.svg" id="icon" alt="User Icon" />
   </div>
   
-  <div class="pretty-block flex-col" style="justify-content: center;">
+  <div class="pretty-block flex-col fcol-3" style="justify-content: center;">
     <%= form_for :creds, url: welcome_login_path, :html => {:class => "pretty-form"} do |form| %>
       <div>
         <%= form.text_field :drivers_license, :placeholder => "Drivers License #" %>
@@ -14,8 +13,7 @@
     <% end %>
   </div>
   
-  <div class="pretty-block flex-col" style="justify-content: flex-end; min-height: 250px;">
-    <h1>Hello, Friend!</h1>
-    <img src="images/drinkmo.svg" id="icon" alt="User Icon" />
+  <div class="pretty-block fcol-3">
+    
   </div>
 </div>

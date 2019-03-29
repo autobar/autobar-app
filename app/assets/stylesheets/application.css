@@ -15,8 +15,13 @@
  */
 
 .pretty-block{
-    width: 300px;
     padding: 10px;
+}
+.fcol-3{
+    width: 300px;
+}
+.fcol-4{
+    width: 250px;
 }
 .pretty-form, .pretty-form div{
     position: relative;
