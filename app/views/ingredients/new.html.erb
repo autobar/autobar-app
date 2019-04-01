@@ -8,11 +8,14 @@
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
       
-      <%= f.label :tag %>
-      <%= f.text_field :tag, class: 'form-control' %>
+      <%= f.label :pump %>
+      <%= f.number_field :pump, class: 'form-control' %>
+
+      <%= f.label :liquor %>
+      <%= f.check_box :liquor %>
       
-      <%= f.label :image %>
-      <%= f.file_field :image, class: 'form-control' %>
+      <%= f.label :mixer %>
+      <%= f.check_box :mixer %>
 
       <%= f.submit "Create new drink", class: "btn btn-primary" %>
     <% end %>

@@ -4,8 +4,8 @@ class CreateIngredients < ActiveRecord::Migration[5.2]
       t.string :name
       t.float :amount
       t.references :drink, foreign_key: true
-      t.boolean :liquor
-      t.boolean :mixer
+      t.boolean :liquor, default: false
+      t.boolean :mixer, default: false
       t.integer :pump
       t.timestamps
     end

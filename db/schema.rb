@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 2019_04_01_011715) do
     t.string "name"
     t.float "amount"
     t.bigint "drink_id"
-    t.boolean "liquor"
-    t.boolean "mixer"
+    t.boolean "liquor", default: false
+    t.boolean "mixer", default: false
     t.integer "pump"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,0 +1,24 @@
+<h1>All Ingredients</h1>
+
+<div class="row">
+  <h3><%= link_to "Create a new ingredient", new_ingredient_path %></h3>
+  <table>
+    <th>Name</th>
+    <th>Pump</th>
+    <th>Liquor</th>
+    <th>Mixer</th>
+    <% @ingredients.each do |ingredient| %>
+      <tr>
+        <td>
+          <%= link_to ingredient.name, ingredient %> 
+          | <%= link_to "edit", edit_ingredient_path(ingredient) %> 
+          | <%= link_to "delete", ingredient, method: :delete, 
+                data: {confirm: "Are you sure you want to delete ingredient #{ingredient.name}? This cannot be undone." } %>
+        </td>
+        <td><%= ingredient.pump %></td>
+        <td><%= ingredient.liquor %></td>
+        <td><%= ingredient.mixer %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
