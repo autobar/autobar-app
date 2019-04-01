@@ -1,0 +1,20 @@
+<h1>Create new ingredient</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@ingredient, url: ingredients_path) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+    
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      
+      <%= f.label :tag %>
+      <%= f.text_field :tag, class: 'form-control' %>
+      
+      <%= f.label :image %>
+      <%= f.file_field :image, class: 'form-control' %>
+
+      <%= f.submit "Create new drink", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+{
+    "liquor":{
+        "champagne": 1,
+        "gin": 2,
+        "jack daniels": 3,
+        "rum": 4,
+        "vodka": 5
+    },
+    "mixer":{
+        "coffee": 6,
+        "coke": 7,
+        "cream": 8,
+        "ginger beer": 9,
+        "lime juice": 10,
+        "orange juice": 11,
+        "sprite": 12,
+        "tonic water": 3
+    }
+}

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   
   resources :drinks
   resources :orders
+  resources :ingredients
 end
