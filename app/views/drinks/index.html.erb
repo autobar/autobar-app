@@ -2,7 +2,7 @@
 
 <div class="row">
   <h3><%= link_to "Create a new drink", new_drink_path %></h3>
-  <table>
+  <table style="table-layout:fixed;">
     <th>Image</th>
     <th>Name</th>
     <th>Ingredients</th>
@@ -21,7 +21,13 @@
           | <%= link_to "delete", drink, method: :delete, 
                 data: {confirm: "Are you sure you want to delete drink #{drink.name}? This cannot be undone." } %>
         </td>
-        <td><%= "placeholder" %></td>
+        <td style="word-wrap:break-word">
+          <% drink.ingredients.each do |ingredient| %>
+            <a href="<%= edit_ingredient_path(ingredient) %>" class="badge badge-primary"><%= ingredient.name %>
+              <span class="badge badge-light"><%= ingredient.amount %></span>
+            </a>
+          <% end %>
+        </td>
         <td><%= drink.default %></td>
         <td><%= drink.tag %></td>
       </tr>

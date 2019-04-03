@@ -5,7 +5,7 @@
     <h4><%= link_to "< Back to All Drinks", drinks_path %></h4>
     <h3><%= link_to "Edit this drink", edit_drink_path(@drink) %></h3>
     
-    <table>
+    <table style="table-layout:fixed;">
       <th>Image</th>
       <th>Name</th>
       <th>Ingredients</th>
@@ -18,7 +18,13 @@
           <% end %>
         </td>
         <td><%= @drink.name %></td>
-        <td><%= "placeholder" %></td>
+        <td style="word-wrap:break-word">
+          <% @drink.ingredients.each do |ingredient| %>
+            <a href="<%= edit_ingredient_path(ingredient) %>" class="badge badge-primary"><%= ingredient.name %>
+              <span class="badge badge-light"><%= ingredient.amount %></span>
+            </a>
+          <% end %>
+        </td>
         <td><%= @drink.default %></td>
         <td><%= @drink.tag %></td>
       </tr>

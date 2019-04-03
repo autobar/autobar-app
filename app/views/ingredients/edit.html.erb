@@ -12,11 +12,16 @@
       <%= f.label :pump %>
       <%= f.number_field :pump, class: 'form-control' %>
       
-      <%= f.label :liquor %>
-      <%= f.check_box :liquor, class: 'form-control' %>
+      <%= f.label :drink_type_liquor, 'Liquor' %>
+      <%= f.radio_button :drink_type, 'liquor', :checked => @ingredient.liquor,
+        :value => 'liquor'%> 
+      <%= f.label :drink_type_mixer, 'Mixer' %>
+      <%= f.radio_button :drink_type, 'mixer', :checked => @ingredient.mixer,
+        :value => 'mixer'%>
+        
+      <%= f.label :amount, 'Amount' %>
+      <%= f.number_field :amount, class: 'form-control', :step => 0.1 %>
       
-      <%= f.label :mixer %>
-      <%= f.check_box :mixer, class: 'form-control' %>
        <br />
       <%= f.submit "Update", class: "btn btn-primary" %>
     <% end %>

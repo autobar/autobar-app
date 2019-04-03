@@ -10,11 +10,29 @@
       <th>Pump</th>
       <th>Liquor</th>
       <th>Mixer</th>
+      <th>Drink</th>
       <tr>
         <td><%= @ingredient.name %></td>
         <td><%= @ingredient.pump %></td>
-        <td><%= @ingredient.liquor %></td>
-        <td><%= @ingredient.mixer %></td>
+        <td>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" aria-label="liquor"
+              <%= if @ingredient.liquor then :checked else "" end %> disabled/>
+          </div>
+        </td>
+        <td>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" aria-label="mixer"
+              <%= if @ingredient.mixer then :checked else "" end %> disabled/>
+          </div>
+        </td>
+        <td>
+          <% if @ingredient.drink %>
+            <%= link_to @ingredient.drink.name, @ingredient.drink %>
+          <% else %>
+            None
+          <% end %>
+        </td>
       </tr>
     </table>
   </div>

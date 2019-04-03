@@ -46,3 +46,18 @@
 .mg-top-sm{
     margin-top: 10px;
 }
+.drink-card{
+    position: relative;
+}
+.drink-card:after{
+    content: '';
+    left: 2.5%;
+    top: 0;
+    position: absolute;
+    width: 95%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+}
+.drink-img-top{
+    margin: 20px auto;
+}

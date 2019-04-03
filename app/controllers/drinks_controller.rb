@@ -1,5 +1,4 @@
 class DrinksController < ApplicationController
-  
   def new
     @drink = Drink.new
   end
@@ -27,6 +26,25 @@ class DrinksController < ApplicationController
   
   def edit
     @drink = Drink.find(params[:id])
+    default_ingredients = Ingredient.alphabetical.where({drink: nil})
+    ingredients = Ingredient.alphabetical.where({drink: @drink})
+    @ingredients = Hash.new()
+    default_ingredients.each do |ingredient|
+      found = false
+      ingredient_of_drink = nil
+      ingredients.each do |ingredient2|
+        if ingredient2.name == ingredient.name
+          ingredient_of_drink = ingredient2
+          found = true
+          break
+        end
+      end
+      if found
+        @ingredients[ingredient_of_drink] = true
+      else
+        @ingredients[ingredient] = false
+      end
+    end
   end
   
   def update
@@ -54,6 +72,9 @@ class DrinksController < ApplicationController
     @drinks = Drink.alphabetical
   end
   
+  def toggle_ingredient
+    puts params
+  end
   
 private # ---------- PRIVATE ----------
 

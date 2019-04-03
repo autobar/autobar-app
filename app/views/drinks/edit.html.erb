@@ -18,6 +18,14 @@
         <%= f.file_field :image, class: 'form-control' %>
       <% end %>
       
+      <%= f.label :ingredients %>
+      <br/>
+      <% @ingredients.each do |ingredient, val| %>
+        <a href="<%= drinks_toggle_ingredient_path('id': ingredient) %>" class="badge <%= if val then 'badge-primary' else 'badge-secondary' end %>">
+          <%= ingredient.name %>
+        </a>
+      <% end %>
+
       <%= f.submit "Update", class: "btn btn-primary" %>
     <% end %>
     <br />

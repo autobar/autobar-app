@@ -5,7 +5,13 @@ class IngredientsController < ApplicationController
     
     def create
         @ingredient = Ingredient.new(ingredient_params)
-    
+        if params[:ingredient][:drink_type] == "mixer"
+            @ingredient.liquor = false
+            @ingredient.mixer = true
+        else
+            @ingredient.liquor = true
+            @ingredient.mixer = false
+        end
         if @ingredient.save
           # handle the creation of a new drink
           flash[:success] = "#{@ingredient.name} successfully created"
@@ -30,6 +36,18 @@ class IngredientsController < ApplicationController
     
     def update
         @ingredient = Ingredient.find(params[:id])
+        if @ingredient.drink_id == nil
+            if not auth_check
+                return
+            end
+        end
+        if params[:ingredient][:drink_type] == "mixer"
+            @ingredient.liquor = false
+            @ingredient.mixer = true
+        else
+            @ingredient.liquor = true
+            @ingredient.mixer = false
+        end
         @ingredient.update_attributes!(ingredient_params)
         flash[:success] = "Ingredient #{@ingredient.name} successfully updated"
         redirect_to @ingredient
@@ -37,6 +55,9 @@ class IngredientsController < ApplicationController
 
     def destroy
         @ingredient = Ingredient.find(params[:id])
+        if @ingredient.drink_id == nil
+            auth_check
+        end
         @ingredient.destroy!
         flash[:success] = "Ingredient #{@ingredient.name} successfully deleted"
         redirect_to ingredients_path
