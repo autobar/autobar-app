@@ -1,51 +1,89 @@
+<html>
+<head>
+<title>Dynamically add input field using jquery</title>
 <style>
-    .check {
-        opacity: 0.5;
-        color: #996;
-    }
-    img.img-check{
-    	height: 100px;
-    }
-    .drink-div{
-    	width: 100%;
-    	margin-top: 10px;
-    }
+.container1 input[type=text] {
+padding:5px 0px;
+margin:5px 5px 5px 0px;
+}
+
+
+.add_form_field
+{
+    background-color: #1c97f3;
+    border: none;
+    color: white;
+    padding: 8px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+	border:1px solid #186dad;
+
+}
+
+input{
+    border: 1px solid #1c97f3;
+    width: 260px;
+    height: 40px;
+	margin-bottom:14px;
+}
+
+.delete{
+    background-color: #fd1200;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
 </style>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
-    $(document).ready(function(e) {
-        $(".img-check").click(function() {
-            $(this).toggleClass("check");
-        });
+$(document).ready(function() {
+    var max_fields      = 10;
+    var wrapper         = $(".container1"); 
+    var add_button      = $(".add_form_field"); 
+    
+    var x = 1; 
+    $(add_button).click(function(e){ 
+        e.preventDefault();
+        if(x < max_fields){ 
+            x++; 
+            $(wrapper).append('<div><select> <% @drinks.each do |drink| %> <option><%= drink.name %>  </option> <% end %> </select><a href="#" class="delete">Delete</a></div>'); //add input box
+        }
+		else
+		{
+		alert('You Reached the limits')
+		}
     });
+    
+    $(wrapper).on("click",".delete", function(e){ 
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
 </script>
-
+</head>
 <h1>Pick your drink! :)</h1>
-<div class="container">
-    <div class="row">
-        <form method="get">
-            <div class="form-group">
 
-                <%# image_tag("screwdriver.jpg", width: '100px',  :alt =>"rss feed") %>
-
-                <table>
-					<% @drinks.each do |drink| %>
-						<tr>
-	                        <div class="col-md-3">
-	                            <label class="drink-div btn btn-primary"><img class="img-thumbnail img-check" <%=image_tag( drink.image,:size=> "100x100", :alt => "rss feed") -%> <%= drink.name %>
-	                                <input type="checkbox" name="chk1" id="item4" value="val1" class="hidden" autocomplete="off">
-	                            </label>
-	                        </div>
-	                    </tr>
-					<% end %>
-                    
-                </table>
-
-            </div>
-            <input type="submit" value="I'm done selecting!" class="btn btn-success">
-
-        </form>
-    </div>
+<body>
+    
+<div class="container1">
+    <button class="add_form_field">Add New Drink &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
+       
+    
 </div>
+</body>
+</html>
+
+
+
 
 <%= link_to "Back", root_path %>
