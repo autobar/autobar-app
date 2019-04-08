@@ -108,6 +108,73 @@ select {
 </div>
 
 
+<div id = "form4" style = "display:none">
+    Drink 1
+    <select id = "form4s1"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 2
+    <select id = "form4s2"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 3
+    <select id = "form4s3"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 4
+    <select id = "form4s4"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+</div>
+
+<div id = "form5" style = "display:none">
+    Drink 1
+    <select id = "form5s1"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 2
+    <select id = "form5s2"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 3
+    <select id = "form5s3"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 4
+    <select id = "form5s4"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 5
+    <select id = "form5s5"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+</div>
+
 <!-- <button onclick="myFunction(drinkName)">Try it</button> -->
 
 <div id="hiddendiv" style = "display:none"> </div>
@@ -122,16 +189,36 @@ function myFunction(formNum) {
       document.getElementById("form1").style.display = "block";
       document.getElementById("form2").style.display = "none";
       document.getElementById("form3").style.display = "none";
+      document.getElementById("form4").style.display = "none";
+      document.getElementById("form5").style.display = "none";
     }
     if(i == 2){
         document.getElementById("form1").style.display = "none";
         document.getElementById("form2").style.display = "block";
         document.getElementById("form3").style.display = "none";
+        document.getElementById("form4").style.display = "none";
+        document.getElementById("form5").style.display = "none"
     }
     if(i == 3){
         document.getElementById("form1").style.display = "none";
         document.getElementById("form2").style.display = "none";
         document.getElementById("form3").style.display = "block";
+        document.getElementById("form4").style.display = "none";
+        document.getElementById("form5").style.display = "none";
+    }
+    if(i == 4){
+        document.getElementById("form1").style.display = "none";
+        document.getElementById("form2").style.display = "none";
+        document.getElementById("form3").style.display = "none";
+        document.getElementById("form4").style.display = "block";
+        document.getElementById("form5").style.display = "none";
+    }
+    if(i == 5){
+        document.getElementById("form1").style.display = "none";
+        document.getElementById("form2").style.display = "none";
+        document.getElementById("form3").style.display = "none";
+        document.getElementById("form4").style.display = "none";
+        document.getElementById("form5").style.display = "block";
     }
     
         
