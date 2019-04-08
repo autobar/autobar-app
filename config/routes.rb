@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'welcome/pickdrink'
   get 'welcome/orders'
   post 'welcome/login'
+  get 'welcome/logout'
+  
   post 'drink/remove_image', to: 'drinks#remove_image'
   get 'drinks/toggle_ingredient'
   

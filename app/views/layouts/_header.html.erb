@@ -18,7 +18,11 @@
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Drinks", drinks_path %></li>
             <li><%= link_to "Ingredients", ingredients_path %></li>
-            <li></li>
+            <li>
+              <% if session[:dl] %>
+                <%= link_to "Logout", welcome_logout_path %>
+              <% end %>
+            </li>
           </ul>
         </div>
       </div>
