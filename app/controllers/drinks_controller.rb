@@ -74,6 +74,17 @@ class DrinksController < ApplicationController
   
   def toggle_ingredient
     puts params
+    @drink = Drink.find(params[:id])
+    @ingredient = Drink.find(params[:id]).ingredients.find_by(id: params[:i_id])
+    if @ingredient
+      @ingredient.destroy
+    else
+      ingredient = Ingredient.find(params[:i_id])
+      @ingredient = ingredient.dup
+      @ingredient.drink = @drink
+      @ingredient.save
+    end
+    redirect_to edit_drink_path(@drink)
   end
   
 private # ---------- PRIVATE ----------

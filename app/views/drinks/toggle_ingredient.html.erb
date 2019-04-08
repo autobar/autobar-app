@@ -21,7 +21,7 @@
       <%= f.label :ingredients %>
       <br/>
       <% @ingredients.each do |ingredient, val| %>
-        <a href="<%= drinks_toggle_ingredient_path('id': @drink, 'i_id': ingredient) %>" class="badge <%= if val then 'badge-primary' else 'badge-secondary' end %>">
+        <a href="<%= drinks_toggle_ingredient_path(@drink) %>" class="badge <%= if val then 'badge-primary' else 'badge-secondary' end %>">
           <%= ingredient.name %>
         </a>
       <% end %>
