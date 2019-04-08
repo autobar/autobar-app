@@ -1,16 +1,19 @@
 <div style="display: flex; flex-wrap: wrap; width: 100%; justify-content: space-around;">
-  <% @drinks.each do |drink| %>
-    <a>
-      <div class="card mg-top-sm" style="width: 300px;">
-        <% if drink.image.attached? %>
-          <%= image_tag drink.image, alt: drink.name, class: "drink-img-top card-img-top", height: '100px', style: 'width: auto;'%>
-        <% else %>
-          <%= image_tag "drink.svg", alt: drink.name, class: "drink-img-top card-img-top", height: '100px', style: 'width: auto;'%>
-        <% end %>
-        <span class="card-body drink-card">
-          <%= drink.name %>
-        </span>
-      </div>
-    </a>
+  <% @orders.each do |order| %>
+    <% order.drinks.each do |drink| %>
+      <a>
+        <div class="card mg-top-sm" style="width: 300px;">
+          <span class="card-number">#<%= order.id %></span>
+          <% if drink.image.attached? %>
+            <%= image_tag drink.image, alt: drink.name, class: "drink-img-top card-img-top", height: '100px', style: 'width: auto;'%>
+          <% else %>
+            <%= image_tag "drink.svg", alt: drink.name, class: "drink-img-top card-img-top", height: '100px', style: 'width: auto;'%>
+          <% end %>
+          <span class="card-body drink-card">
+            <%= drink.name %>
+          </span>
+        </div>
+      </a>
+    <% end %>
   <% end %>
 </div>

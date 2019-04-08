@@ -23,7 +23,8 @@
         </td>
         <td style="word-wrap:break-word">
           <% drink.ingredients.each do |ingredient| %>
-            <a href="<%= edit_ingredient_path(ingredient) %>" class="badge badge-primary"><%= ingredient.name %>
+            <a href="<%= edit_ingredient_path(ingredient) %>" class="badge 
+            <%= drink.user ? 'badge-success' : 'badge-primary' %>"><%= ingredient.name %>
               <span class="badge badge-light"><%= ingredient.amount %></span>
             </a>
           <% end %>

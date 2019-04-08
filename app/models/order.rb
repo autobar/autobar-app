@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
-    has_many :drinks
-    
+    has_and_belongs_to_many :drinks, optional: true
+    belongs_to :user, optional: true
     
     def completed?
         completed

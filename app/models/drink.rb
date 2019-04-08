@@ -2,7 +2,7 @@ class Drink < ApplicationRecord
   #serialize :ingredients
   
   has_many :ingredients
-  belongs_to :order, optional: true
+  has_and_belongs_to_many :orders, optional: true
   belongs_to :user, optional: true
   has_one_attached :image
   

@@ -61,3 +61,13 @@
 .drink-img-top{
     margin: 20px auto;
 }
+.card{
+    position: relative;
+}
+.card-number{
+    content: '';
+    position: absolute;
+    color: rgba(0, 0, 0, 0.4);
+    left: 5px;
+    top: 5px;
+}

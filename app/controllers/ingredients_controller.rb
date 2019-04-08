@@ -23,6 +23,10 @@ class IngredientsController < ApplicationController
     end
     
     def index
+        @user = User.find_by(drivers_license: session[:dl])
+        if not @user.is_admin
+            redirect_to welcome_menu_path
+        end
         @ingredients = Ingredient.alphabetical.where({drink: nil})
     end
     
@@ -35,9 +39,17 @@ class IngredientsController < ApplicationController
     end
     
     def update
+        @user = User.find_by(drivers_license: session[:dl])
         @ingredient = Ingredient.find(params[:id])
+        if not @user.is_admin
+            if @ingredient.drink.user != @user
+                flash[:success] = "Ingredient #{@ingredient.name} is not yours to edit."
+                redirect_to welcome_menu_path
+            end
+        end
         if @ingredient.drink_id == nil
             if not auth_check
+                flash[:success] = "Ingredient #{@ingredient.name} is not yours to edit."
                 return
             end
         end

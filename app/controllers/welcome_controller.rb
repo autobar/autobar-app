@@ -34,6 +34,6 @@ class WelcomeController < ApplicationController
   
   def orders
     user = User.find_by(drivers_license: session[:dl])
-    @drinks = Drink.where(user: user)
+    @orders = Order.where(user: user, completed: false)
   end
 end

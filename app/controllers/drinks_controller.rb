@@ -5,7 +5,10 @@ class DrinksController < ApplicationController
   
   def create
     @drink = Drink.new(drink_params)
-    
+    @user = User.find_by(drivers_license: session[:dl])
+    if not @user.is_admin
+      @drink.user = @user
+    end
     if @drink.save
       # handle the creation of a new drink
       flash[:success] = "Committee #{@drink.name} successfully created"
@@ -17,7 +20,12 @@ class DrinksController < ApplicationController
   end
 
   def index
-    @drinks = Drink.alphabetical
+    @user = User.find_by(drivers_license: session[:dl])
+    if not @user.is_admin
+      @drinks = Drink.where({user: @user}).alphabetical + (Drink.where({user: nil}).alphabetical)
+    else
+      @drinks = Drink.where({user: nil}).alphabetical
+    end
   end
   
   def show
@@ -48,23 +56,50 @@ class DrinksController < ApplicationController
   end
   
   def update
+    @user = User.find_by(drivers_license: session[:dl])
     @drink = Drink.find(params[:id])
-    @drink.update_attributes!(drink_params)
-    flash[:success] = "Drink #{@drink.name} successfully updated"
-    redirect_to @drink
+    if @user.is_admin or @drink.user
+      @drink.update_attributes!(drink_params)
+      flash[:success] = "Drink #{@drink.name} successfully updated"
+      redirect_to @drink
+    else
+      drink = @drink.dup
+      drink.user = @user
+      drink.image.attach(@drink.image.blob)
+      drink.save
+      @drink.ingredients.each do |ingredient|
+        local_ingredient = ingredient.dup
+        local_ingredient.drink = drink
+        local_ingredient.save
+      end
+      drink.update_attributes!(drink_params)
+    end
   end
   
   def destroy
+    @user = User.find_by(drivers_license: session[:dl])
     @drink = Drink.find(params[:id])
-    @drink.destroy!
-    flash[:success] = "Drink #{@drink.name} successfully deleted"
+    if @drink.user == @user or @user.is_admin
+      @drink.ingredients.each do |ingredient|
+        ingredient.destroy
+      end
+      @drink.destroy!
+      flash[:success] = "Drink #{@drink.name} successfully deleted"
+    else
+      flash[:success] = "Drink #{@drink.name} is not yours to delete."
+    end
     redirect_to drinks_path
   end
   
   def remove_image
+    @user = User.find_by(drivers_license: session[:dl])
     @drink = Drink.find(params[:id])
-    @drink.image.purge
-    flash[:success] = "Successfully removed image from #{@drink.name}"
+    if @drink.user == @user
+      @drink.image.purge
+      flash[:success] = "Successfully removed image from #{@drink.name}"
+    else
+      flash[:success] = "Drink #{@drink.name} is not yours to edit."
+    end
     redirect_to edit_drink_path(@drink)
   end
   
@@ -73,9 +108,21 @@ class DrinksController < ApplicationController
   end
   
   def toggle_ingredient
-    puts params
+    @user = User.find_by(drivers_license: session[:dl])
     @drink = Drink.find(params[:id])
-    @ingredient = Drink.find(params[:id]).ingredients.find_by(id: params[:i_id])
+    if @drink.user != @user
+      drink = @drink.dup
+      drink.user = @user
+      drink.image.attach(@drink.image.blob)
+      drink.save
+      @drink.ingredients.each do |ingredient|
+        local_ingredient = ingredient.dup
+        local_ingredient.drink = drink
+        local_ingredient.save
+      end
+      @drink = drink
+    end
+    @ingredient = @drink.ingredients.find_by(id: params[:i_id])
     if @ingredient
       @ingredient.destroy
     else
