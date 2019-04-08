@@ -1,89 +1,253 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>Dynamically add input field using jquery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-.container1 input[type=text] {
-padding:5px 0px;
-margin:5px 5px 5px 0px;
+#myDIV {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+select {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
 }
 
-
-.add_form_field
-{
-    background-color: #1c97f3;
-    border: none;
-    color: white;
-    padding: 8px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-	border:1px solid #186dad;
-
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
-input{
-    border: 1px solid #1c97f3;
-    width: 260px;
-    height: 40px;
-	margin-bottom:14px;
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
 }
 
-.delete{
-    background-color: #fd1200;
-    border: none;
-    color: white;
-    padding: 5px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
 }
+
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-    var max_fields      = 10;
-    var wrapper         = $(".container1"); 
-    var add_button      = $(".add_form_field"); 
-    
-    var x = 1; 
-    $(add_button).click(function(e){ 
-        e.preventDefault();
-        if(x < max_fields){ 
-            x++; 
-            $(wrapper).append('<div><select> <% @drinks.each do |drink| %> <option><%= drink.name %>  </option> <% end %> </select><a href="#" class="delete">Delete</a></div>'); //add input box
-        }
-		else
-		{
-		alert('You Reached the limits')
-		}
-    });
-    
-    $(wrapper).on("click",".delete", function(e){ 
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-    })
-});
-</script>
 </head>
-<h1>Pick your drink! :)</h1>
-
 <body>
     
-<div class="container1">
-    <button class="add_form_field">Add New Drink &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
-       
-    
+<div id = "selection">
+    Select Number of Drinks 
+    <select onchange="myFunction(this.value)">
+        <option> 1 </option>
+        <option> 2 </option>
+        <option> 3 </option>
+        <option> 4 </option>
+        <option> 5 </option>
+    </select>
+    <br></br>
 </div>
+
+<div id = "form1" >
+    Drink 1
+    <select id = "form1s1"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+</div>
+
+<div id = "form2" style = "display:none">
+    Drink 1
+    <select id = "form2s1"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    Drink 2
+    <select id = "form2s2"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+</div>
+
+<div id = "form3" style = "display:none">
+    Drink 1
+    <select id = "form3s1"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 2
+    <select id = "form3s2"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 3
+    <select id = "form3s3"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+</div>
+
+
+<div id = "form4" style = "display:none">
+    Drink 1
+    <select id = "form4s1"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 2
+    <select id = "form4s2"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 3
+    <select id = "form4s3"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 4
+    <select id = "form4s4"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+</div>
+
+<div id = "form5" style = "display:none">
+    Drink 1
+    <select id = "form5s1"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 2
+    <select id = "form5s2"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 3
+    <select id = "form5s3"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 4
+    <select id = "form5s4"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+    
+    Drink 5
+    <select id = "form5s5"> <% @drinks.each do |drink| %> 
+    <option id = x><%= drink.name %>  </option> 
+    <% end %> 
+    </select>
+    <br></br>
+</div>
+
+<!-- <button onclick="myFunction(drinkName)">Try it</button> -->
+
+<div id="hiddendiv" style = "display:none"> </div>
+
+<button class="button button2" onclick = "showText()">Make My Drinks!</button>
+
+<script>
+function myFunction(formNum) {
+    var i = formNum;
+    document.getElementById("hiddendiv").innerHTML = formNum;
+    if(i == 1){
+      document.getElementById("form1").style.display = "block";
+      document.getElementById("form2").style.display = "none";
+      document.getElementById("form3").style.display = "none";
+      document.getElementById("form4").style.display = "none";
+      document.getElementById("form5").style.display = "none";
+    }
+    if(i == 2){
+        document.getElementById("form1").style.display = "none";
+        document.getElementById("form2").style.display = "block";
+        document.getElementById("form3").style.display = "none";
+        document.getElementById("form4").style.display = "none";
+        document.getElementById("form5").style.display = "none"
+    }
+    if(i == 3){
+        document.getElementById("form1").style.display = "none";
+        document.getElementById("form2").style.display = "none";
+        document.getElementById("form3").style.display = "block";
+        document.getElementById("form4").style.display = "none";
+        document.getElementById("form5").style.display = "none";
+    }
+    if(i == 4){
+        document.getElementById("form1").style.display = "none";
+        document.getElementById("form2").style.display = "none";
+        document.getElementById("form3").style.display = "none";
+        document.getElementById("form4").style.display = "block";
+        document.getElementById("form5").style.display = "none";
+    }
+    if(i == 5){
+        document.getElementById("form1").style.display = "none";
+        document.getElementById("form2").style.display = "none";
+        document.getElementById("form3").style.display = "none";
+        document.getElementById("form4").style.display = "none";
+        document.getElementById("form5").style.display = "block";
+    }
+    
+        
+}
+
+function showText(){
+    var size;
+    var form;
+    var sizeInteger;
+    var i; 
+    var text = "";
+    if(document.getElementById("hiddendiv").innerHTML == ""){
+        sizeInteger = 1;
+    }
+    else{
+    size = document.getElementById("hiddendiv").innerHTML;
+    form = "form" + document.getElementById("hiddendiv").innerHTML;
+    sizeInteger = parseInt(size, 10) + 1;        
+    }
+
+    
+    for(i = 1; i < sizeInteger; ++i){
+        var id = form + "s" + i;
+        text+= ("Drink " + i + " is " + document.getElementById(id).value + "\n");
+    }
+    alert(text);
+}
+</script>
+
 </body>
 </html>
 
-
-
-
-<%= link_to "Back", root_path %>
