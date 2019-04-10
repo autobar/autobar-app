@@ -9,6 +9,9 @@ class DrinksController < ApplicationController
     if not @user.is_admin
       @drink.user = @user
     end
+    if not @drink.image.attached?
+      @drink.image.attach(io: File.open('app/assets/images/drink.png'), filename: 'drink.png')
+    end
     if @drink.save
       # handle the creation of a new drink
       flash[:success] = "Committee #{@drink.name} successfully created"
