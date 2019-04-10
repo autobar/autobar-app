@@ -43,13 +43,30 @@ class IngredientsController < ApplicationController
         @ingredient = Ingredient.find(params[:id])
         if not @user.is_admin
             if @ingredient.drink.user != @user
+                if @ingredient.drink_id != nil
+                  drink = @ingredient.drink.dup
+                  drink.user = @user
+                  drink.default = false
+                  drink.image.attach(@ingredient.drink.image.blob)
+                  drink.save
+                  @ingredient.drink.ingredients.each do |ingredient|
+                    local_ingredient = ingredient.dup
+                    local_ingredient.drink = drink
+                    local_ingredient.save
+                  end
+                  flash[:success] = "Drink #{drink.name} has been made!"
+                  redirect_to edit_drink_path(drink)
+                  return
+                end
                 flash[:success] = "Ingredient #{@ingredient.name} is not yours to edit."
                 redirect_to welcome_menu_path
+                return
             end
         end
         if @ingredient.drink_id == nil
             if not auth_check
                 flash[:success] = "Ingredient #{@ingredient.name} is not yours to edit."
+                redirect_to welcome_menu_path
                 return
             end
         end

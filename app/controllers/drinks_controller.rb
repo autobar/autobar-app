@@ -113,6 +113,7 @@ class DrinksController < ApplicationController
     if @drink.user != @user
       drink = @drink.dup
       drink.user = @user
+      drink.default = false
       drink.image.attach(@drink.image.blob)
       drink.save
       @drink.ingredients.each do |ingredient|
