@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.3.1'
 gem 'popper_js', '~> 1.14.5'
 gem 'sprockets-rails', require: 'sprockets/railtie'
+
+#Twilio
+gem 'twilio-ruby', '~> 3.12'

@@ -33,3 +33,13 @@ Some setup must be done in order to get the app's functionality up and running.
     exit
   ```
  - You should be good to go to run `rails server`!
+
+## Enabling Twilio Services
+- Create a Twilio account
+- Grab your new Twilio number and in the console run:
+  ```
+  export TWILIO_ACCOUNT_SID=[YOUR_INFO]
+  export TWILIO_AUTH_TOKEN=[YOUR_INFO]
+  export TWILIO_PHONE_NUMBER=[YOUR_INFO]
+  ```
+- Twilio should now work smoothly!

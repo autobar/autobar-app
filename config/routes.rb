@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   post 'drink/remove_image', to: 'drinks#remove_image'
   get 'drinks/toggle_ingredient'
   
+  #Twilio
+  get 'notifications/notify' => 'notifications#notify'
+  
   resources :drinks
   resources :orders
   resources :ingredients
