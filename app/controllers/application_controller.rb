@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  
+  before_action :check_logged_in
   # POST /coffee_roasts
   def create
     @coffee_roast = Application.new(coffee_roast_params)
@@ -23,6 +23,16 @@ class ApplicationController < ActionController::Base
       return false
     else #Admin
       return true
+    end
+  end
+  
+  def check_logged_in
+    if controller_name != 'welcome' or action_name != 'index'
+        if not session[:dl] or session[:dl] == ''
+          if action_name != 'login' and not User.find_by(drivers_license: session[:dl])
+            redirect_to root_path
+          end
+        end
     end
   end
   protect_from_forgery with: :exception

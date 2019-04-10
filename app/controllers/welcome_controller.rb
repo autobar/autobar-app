@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
     if session[:dl]
       redirect_to welcome_menu_path
     end
+    @orders = Order.all
   end
   
   def pickdrink
@@ -35,5 +36,23 @@ class WelcomeController < ApplicationController
   def orders
     user = User.find_by(drivers_license: session[:dl])
     @orders = Order.where(user: user, completed: false)
+  end
+  
+  def edit_user
+    @user = User.find_by(drivers_license: session[:dl])
+  end
+  
+  def update_user
+    @user = User.find_by(drivers_license: session[:dl])
+    @user.update_attributes!(user_params)
+    redirect_to welcome_menu_path
+  end
+  
+  private # ---------- PRIVATE ----------
+
+  # whitelist all of the parameters passed in forms to create
+  # or edit an Ingredient
+  def user_params
+      params.require(:user).permit(:name, :phone_number)
   end
 end

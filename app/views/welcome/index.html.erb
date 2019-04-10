@@ -14,6 +14,17 @@
   </div>
   
   <div class="pretty-block fcol-3">
-    
+    <h2>Queue</h2>
+    <%  @orders.each do |order| %>
+      <p><%= "#" + order.id.to_s + ") "%>
+      <% if order.user %>
+        <% if not order.user.name.empty? %>
+          <%= order.user.name %>
+        <% else %>
+          <%= order.user.phone_number %>
+        <% end %>
+      <% end %>
+      </p>
+    <% end %>
   </div>
 </div>

@@ -1,0 +1,19 @@
+<h1><%= "Edit information for #{@user.name}" %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  
+    <%= form_for :user,  url: welcome_update_user_path do |f| %>
+    
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number, class: 'form-control' %>
+      <%= f.label :drivers_license %>
+      <input placeholder="<%= @user.drivers_license %>" disabled>
+       <br />
+      <%= f.submit "Update", class: "btn btn-primary" %>
+    <% end %>
+    <br />
+  </div>
+</div>
