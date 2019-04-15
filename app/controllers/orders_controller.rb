@@ -1,7 +1,35 @@
 class OrdersController < ApplicationController
-  
+  require 'json'  
   def create_from_json
+    user = User.find_by(drivers_license: session[:dl])
+    puts "WE IN IT"
+    puts ""
+    puts params
+    puts params["order"]["list"]
+    puts ""
+    name = params["order"]["name"]
+    phone_number = params["order"]["phone_number"]
+    if name.empty? or phone_number.empty?
+      puts "Missing fields"
+      flash[:error] = "Missing fields"
+      redirect_to root_path
+      return
+    end
+    user.name = name
+    user.phone_number = phone_number
+    list = JSON.parse(params["order"]["list"])
+    if list.length > 0
+      puts "New Order!"
+      new_order = Order.create
+      new_order.user = user
+      
+      list.each do |drink_id|
+        puts "Listing drink order: " + drink_id.to_s
+        new_order.drinks << Drink.find_by(id: drink_id)
+      end
+    end
     
+    redirect_to root_path
   end
   
   def show

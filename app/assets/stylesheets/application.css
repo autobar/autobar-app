@@ -77,6 +77,10 @@
     margin: 10px 0px;
     padding: 0 20px;
 }
-#payload-form{
+#payload-form [name="order[list]"], #payload-form [name="commit"]{
     display: none;
+}
+.alert-error{
+    margin: 10px;
+    background: rgba(100, 0, 0, 0.2);
 }

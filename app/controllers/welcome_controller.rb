@@ -3,11 +3,12 @@ class WelcomeController < ApplicationController
     if session[:dl]
       redirect_to welcome_menu_path
     end
-    @orders = Order.where(completed: false)
+    @orders = Order.where(completed: false).limit(5)
   end
   
   def pickdrink
     @drinks = Drink.alphabetical
+    @user = User.find_by(drivers_license: session[:dl])
   end
   
   def login
@@ -30,7 +31,7 @@ class WelcomeController < ApplicationController
   end
   
   def menu
-    @orders = Order.where(completed: false)
+    @orders = Order.where(completed: false).limit(5)
   end
   
   def orders

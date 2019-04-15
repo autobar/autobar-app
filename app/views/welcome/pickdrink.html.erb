@@ -179,6 +179,16 @@ select {
 
 <div id="hiddendiv" style = "display:none"> </div>
 
+<%= form_for :order, url: orders_create_from_json_path, :html => {:id => "payload-form", :remote=>true}, 
+    :authenticity_token => true  do |form| %>
+        <%= form.label :name %>
+        <%= form.text_field :name, :required => true, value: @user.name %>
+        <%= form.label :phone_number %>
+        <%= form.text_field :phone_number, placeholder: "+19350001111", :required => true, value: @user.phone_number %>
+        <%= form.text_field :list %>
+        <%= form.submit "Submit" %>
+<% end %>
+
 <button class="button button2" onclick = "showText()">Make My Drinks!</button>
 
 <script>
@@ -258,7 +268,8 @@ function showText(){
     }
     payload = JSON.stringify(order);
     console.log(payload);
-    alert(text);
+    document.getElementById("order_list").value = payload;
+    $("#payload-form").submit();
 }
 
 //Submit payload form
@@ -273,14 +284,14 @@ $('#payload-form').submit(function() {
     return false;
 });
 
+//Input validation
+var invalidClassName = 'invalid'
+var inputs = document.querySelectorAll('input, select, textarea')
+
 //Initialize form
 updateForm(1);
 </script>
-<%= form_for :drink, url: orders_create_from_json_path, :html => {:id => "payload-form", :remote=>true}, 
-    :authenticity_token => true  do |form| %>
-      <%= form.text_field :list %>
-      <%= form.submit "Submit" %>
-<% end %>
+
 </body>
 </html>
 

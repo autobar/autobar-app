@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
   
   def check_logged_in
-    if controller_name != 'welcome' or action_name != 'index'
+    if (controller_name != 'welcome' or action_name != 'index') and controller_name != 'orders'
         if not session[:dl] or session[:dl] == ''
           if action_name != 'login' and not User.find_by(drivers_license: session[:dl])
             redirect_to root_path
