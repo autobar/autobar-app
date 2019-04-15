@@ -43,3 +43,24 @@ Some setup must be done in order to get the app's functionality up and running.
   export TWILIO_PHONE_NUMBER=[YOUR_INFO]
   ```
 - Twilio should now work smoothly!
+
+## Payload Structure for Order Information
+- Example:
+```
+  [
+    {
+      "drivers_license": string,
+      "phone_number": string,
+      "name":string
+    },
+    {
+      "coke": double,
+      "rum": double
+    },
+    {
+      "vodka": double,
+      "tonic water": double
+    },
+    ... Rest of drinks
+  ]
+```
