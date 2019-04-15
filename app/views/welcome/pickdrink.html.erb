@@ -50,7 +50,7 @@ select {
     
 <div id = "selection">
     Select Number of Drinks 
-    <select onchange="myFunction(this.value)">
+    <select onchange="updateForm(this.value)">
         <option> 1 </option>
         <option> 2 </option>
         <option> 3 </option>
@@ -63,7 +63,7 @@ select {
 <div id = "form1" >
     Drink 1
     <select id = "form1s1"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
@@ -72,13 +72,13 @@ select {
 <div id = "form2" style = "display:none">
     Drink 1
     <select id = "form2s1"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
     Drink 2
     <select id = "form2s2"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
@@ -87,21 +87,21 @@ select {
 <div id = "form3" style = "display:none">
     Drink 1
     <select id = "form3s1"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
     
     Drink 2
     <select id = "form3s2"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
     
     Drink 3
     <select id = "form3s3"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
@@ -111,28 +111,28 @@ select {
 <div id = "form4" style = "display:none">
     Drink 1
     <select id = "form4s1"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
     
     Drink 2
     <select id = "form4s2"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
     
     Drink 3
     <select id = "form4s3"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
     
     Drink 4
     <select id = "form4s4"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
@@ -141,35 +141,35 @@ select {
 <div id = "form5" style = "display:none">
     Drink 1
     <select id = "form5s1"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
     
     Drink 2
     <select id = "form5s2"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
     
     Drink 3
     <select id = "form5s3"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
     
     Drink 4
     <select id = "form5s4"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
     
     Drink 5
     <select id = "form5s5"> <% @drinks.each do |drink| %> 
-    <option id = x><%= drink.name %>  </option> 
+    <option value = <%= drink.id %>><%= drink.name %>  </option> 
     <% end %> 
     </select>
     <br></br>
@@ -182,7 +182,7 @@ select {
 <button class="button button2" onclick = "showText()">Make My Drinks!</button>
 
 <script>
-function myFunction(formNum) {
+function updateForm(formNum) {
     var i = formNum;
     document.getElementById("hiddendiv").innerHTML = formNum;
     if(i == 1){
@@ -234,20 +234,53 @@ function showText(){
         sizeInteger = 1;
     }
     else{
-    size = document.getElementById("hiddendiv").innerHTML;
-    form = "form" + document.getElementById("hiddendiv").innerHTML;
-    sizeInteger = parseInt(size, 10) + 1;        
+        size = document.getElementById("hiddendiv").innerHTML;
+        form = "form" + document.getElementById("hiddendiv").innerHTML;
+        sizeInteger = parseInt(size, 10) + 1;
     }
 
-    
     for(i = 1; i < sizeInteger; ++i){
         var id = form + "s" + i;
         text+= ("Drink " + i + " is " + document.getElementById(id).value + "\n");
     }
+    let order = [];
+    for(i = 1; i <= 5; ++i){
+        if($(`#form${i}`).css('display') == 'none'){
+            continue;
+        }
+        let obj_list = $(`[id^=form${i}s]`);
+        console.log(obj_list);
+        for(i = 0; i < obj_list.length; i++){
+            console.log(obj_list[i].value);
+            let drink = parseInt(obj_list[i].value, 10);
+            order.push(drink);
+        }
+    }
+    payload = JSON.stringify(order);
+    console.log(payload);
     alert(text);
 }
-</script>
 
+//Submit payload form
+$('#payload-form').submit(function() {  
+    var payload = $(this).serialize();
+    $.ajax({
+        type: "POST",
+        url: $(this).attr('action'),
+        data: payload,
+        dataType: "JSON"
+    });
+    return false;
+});
+
+//Initialize form
+updateForm(1);
+</script>
+<%= form_for :drink, url: orders_create_from_json_path, :html => {:id => "payload-form", :remote=>true}, 
+    :authenticity_token => true  do |form| %>
+      <%= form.text_field :list %>
+      <%= form.submit "Submit" %>
+<% end %>
 </body>
 </html>
 

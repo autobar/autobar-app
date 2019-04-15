@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
     if session[:dl]
       redirect_to welcome_menu_path
     end
-    @orders = Order.all
+    @orders = Order.where(completed: false)
   end
   
   def pickdrink
@@ -30,7 +30,7 @@ class WelcomeController < ApplicationController
   end
   
   def menu
-    
+    @orders = Order.where(completed: false)
   end
   
   def orders

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'welcome/update_user'
   post 'drink/remove_image', to: 'drinks#remove_image'
   get 'drinks/toggle_ingredient'
+  post 'orders/create_from_json'
   
   #Twilio
   get 'notifications/notify' => 'notifications#notify'

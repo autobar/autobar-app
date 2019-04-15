@@ -13,7 +13,7 @@
     <% end %>
   </div>
   
-  <div class="pretty-block fcol-3">
+  <div class="pretty-block fcol-3 queue-block">
     <h2>Queue</h2>
     <%  @orders.each do |order| %>
       <p><%= "#" + order.id.to_s + ") "%>
@@ -25,6 +25,9 @@
         <% end %>
       <% end %>
       </p>
+    <% end %>
+    <% if @orders.empty? %>
+      <p class="text-secondary"> No orders </p>
     <% end %>
   </div>
 </div>

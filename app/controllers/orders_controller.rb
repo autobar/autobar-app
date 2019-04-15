@@ -1,5 +1,9 @@
 class OrdersController < ApplicationController
   
+  def create_from_json
+    
+  end
+  
   def show
     @order = Order.find(params[:id])
     @recipes = Array.new
@@ -31,6 +35,10 @@ class OrdersController < ApplicationController
       return
     end
     @recipes = Array.new
+    @recipes[0] = Hash.new
+    @recipes[0][:drivers_license] = @order.user.drivers_license
+    @recipes[0][:phone_number] = @order.user.phone_number
+    @recipes[0][:name] = @order.user.name
     @order.drinks.each do |drink|
       recipe = Hash.new
       drink.ingredients.each do |ingredient|

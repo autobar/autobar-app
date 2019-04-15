@@ -71,3 +71,12 @@
     left: 5px;
     top: 5px;
 }
+.queue-block{
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.05);
+    margin: 10px 0px;
+    padding: 0 20px;
+}
+#payload-form{
+    display: none;
+}
