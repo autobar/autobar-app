@@ -79,12 +79,10 @@
         </h5>
             
         <% @ordersComplete.drinks.each_with_index do |drink, i| %>
-            <p><%= "#" + i.to_s + ") "%>
+            <p><%= "#" + (i+1).to_s + ") "%>
             
-            <%= image_tag("pin" + (drink.id % 5).to_s + ".JPG", width: '100px') %>
-            <br></br>
-             <%= drink.name.to_s %> 
-             <br></br><br></br>
+            <%= image_tag("pin" + (i).to_s + ".JPG", width: '100px') %>
+             <p> <%= drink.name.to_s %>  </p>
             
             </p>
         <% end %>
