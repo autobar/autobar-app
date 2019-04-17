@@ -18,6 +18,9 @@ class ApplicationController < ActionController::Base
           end
         end
     end
+    if session[:dl]
+      @user = User.find_by(drivers_license: session[:dl])
+    end
   end
   protect_from_forgery with: :exception
 end
