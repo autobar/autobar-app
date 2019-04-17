@@ -73,7 +73,7 @@
         <div class="pretty-block queue-block">
         <h2>Current Order</h2>
         
-        <% if not @ordersComplete.nil? %>
+        <% if not @ordersComplete.nil? and not @ordersComplete.user.nil? %>
         <h5>
             <%= @ordersComplete.user.name.to_s %>
         </h5>
