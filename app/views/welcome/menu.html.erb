@@ -77,8 +77,9 @@
             <%= @ordersComplete.user.name.to_s %>
             
             
-        <% @ordersComplete.drinks.each do |drink| %>
-            <p><%= "#" + drink.id.to_s + ") "%>
+        <% @ordersComplete.drinks.each do |drink, i| %>
+            <p><%= "#" + i + ") "%>
+            
             
             <%= image_tag("pin" + (drink.id % 5).to_s + ".JPG", width: '100px') %>
             <%= drink.name.to_s %>
