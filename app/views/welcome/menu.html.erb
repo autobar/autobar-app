@@ -56,10 +56,8 @@
             <% if order.user %>
             <% puts "yes" %>
                 <% if not order.user.name.empty? %>
-                    No name
                     <%= order.user.name.to_s %>
                 <% else %>
-                    No number
                     <%= order.user.phone_number.to_s %>
                 <% end %>
             <% end %>
@@ -74,5 +72,17 @@
             <p class="text-secondary"> No orders </p>
         <% end %>
     </div>
+    
+        <div class="pretty-block fcol-3 queue-block">
+        <h2>Queue</h2>
+        
+        <% if not @ordersComplete.nil? %>
+            <%= @ordersComplete.user.name.to_s %>
+        <% end %>
+
+    </div>
+    
+    
+    
 </div>
 

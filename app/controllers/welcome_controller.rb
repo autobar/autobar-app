@@ -32,6 +32,7 @@ class WelcomeController < ApplicationController
   
   def menu
     @orders = Order.where(completed: false).limit(5)
+    @ordersComplete = Order.where(completed: true).reverse()[0]
   end
   
   def orders
