@@ -22,3 +22,6 @@
 
 # Ignore all local storage
 /storage/*
+
+# Ignore storage setting changes
+/config/storage.yml
