@@ -86,7 +86,7 @@ class OrdersController < ApplicationController
         phone_number = '+1'
       end
       phone_number << user.phone_number
-      twilio_client.messages.create from: Rails.application.secrets.twilio_phone_number, to: phone_number, body: message
+      #twilio_client.messages.create from: Rails.application.secrets.twilio_phone_number, to: phone_number, body: message
       puts "\e[32m(" + phone_number + ") Sent message: " + message + "\e[0m"
     end
   end
