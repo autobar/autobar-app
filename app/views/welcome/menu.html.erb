@@ -51,7 +51,6 @@
         <h2>Queue</h2>
         <%  @orders.each do |order| %>
             <p><%= "#" + order.id.to_s + ") "%>
-            <%= image_tag("pin" + (order.id % 5).to_s + ".JPG", width: '100px') %>
             
             <% if order.user %>
             <% puts "yes" %>
@@ -68,8 +67,11 @@
         <% end %>
     </div>
     
+    
+    
+    
         <div class="pretty-block fcol-3 queue-block">
-        <h2>Queue</h2>
+        <h2>Current Order</h2>
         
         <% if not @ordersComplete.nil? %>
             <%= @ordersComplete.user.name.to_s %>
@@ -79,6 +81,7 @@
             <p><%= "#" + drink.id.to_s + ") "%>
             
             <%= image_tag("pin" + (drink.id % 5).to_s + ".JPG", width: '100px') %>
+            <%= drink.name.to_s %>
             
             </p>
         <% end %>
