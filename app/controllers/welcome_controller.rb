@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
       redirect_to welcome_menu_path
     end
     @orders = Order.where(completed: false).limit(5)
+    @ordersComplete = Order.where(completed: true).reverse()[0]
   end
   
   def pickdrink
