@@ -61,11 +61,6 @@
                     <%= order.user.phone_number.to_s %>
                 <% end %>
             <% end %>
-            
-            <% if order.id = '1' %>
-            
-               <% puts "yes" %>
-            <% end %>
             </p>
         <% end %>
         <% if @orders.empty? %>
@@ -78,6 +73,18 @@
         
         <% if not @ordersComplete.nil? %>
             <%= @ordersComplete.user.name.to_s %>
+            
+            
+        <% @ordersComplete.drinks.each do |drink| %>
+            <p><%= "#" + order.drinks.id.to_s + ") "%>
+            
+            <%= image_tag("pin" + (order.drinks.id % 5).to_s + ".JPG", width: '100px') %>
+            
+            </p>
+        <% end %>
+    
+        
+        
         <% end %>
 
     </div>
