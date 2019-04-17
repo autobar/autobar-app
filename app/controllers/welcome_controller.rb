@@ -7,8 +7,12 @@ class WelcomeController < ApplicationController
   end
   
   def pickdrink
-    @drinks = Drink.alphabetical
     @user = User.find_by(drivers_license: session[:dl])
+    if not @user.is_admin
+      @drinks = Drink.where({user: @user}).alphabetical + (Drink.where({user: nil}).alphabetical)
+    else
+      @drinks = Drink.where({user: nil}).alphabetical
+    end
   end
   
   def login
