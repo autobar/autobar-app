@@ -13,7 +13,7 @@
     <div class="pretty-block fcol-4">
         <a href="<%= welcome_orders_path %>">
             <span class="card" style="">
-                <%= image_tag("myOrders.png", class: 'card-img-top', width: '100px', height: '100px') %>
+                <%= image_tag("redSoloCups.png", class: 'card-img-top', width: '100px', height: '100px') %>
                 <span class="card-body">
                     <h5 class="card-title">Your Orders</h5>
                 </span>
@@ -35,7 +35,7 @@
     <div class="pretty-block fcol-4">
         <a href="<%= welcome_edit_user_path %>">
             <span class="card" style="">
-                <%= image_tag("profile.png", class: 'card-img-top', width: '100px', height: '100px') %>
+                <%= image_tag("karl.jpg", class: 'card-img-top', height: '100px') %>
                 <span class="card-body">
                     <h5 class="card-title">Profile</h5>
                 </span>
@@ -76,13 +76,13 @@
         <% if not @ordersComplete.nil? %>
             <%= @ordersComplete.user.name.to_s %>
             
-            
         <% @ordersComplete.drinks.each_with_index do |drink, i| %>
             <p><%= "#" + i.to_s + ") "%>
             
-            
             <%= image_tag("pin" + (drink.id % 5).to_s + ".JPG", width: '100px') %>
-            <%= drink.name.to_s %>
+            <br></br>
+             <%= drink.name.to_s %> 
+             <br></br><br></br>
             
             </p>
         <% end %>
