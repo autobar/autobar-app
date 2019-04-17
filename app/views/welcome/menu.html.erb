@@ -70,11 +70,13 @@
     
     
     
-        <div class="pretty-block fcol-3 queue-block">
+        <div class="pretty-block queue-block">
         <h2>Current Order</h2>
         
         <% if not @ordersComplete.nil? %>
+        <h5>
             <%= @ordersComplete.user.name.to_s %>
+        </h5>
             
         <% @ordersComplete.drinks.each_with_index do |drink, i| %>
             <p><%= "#" + i.to_s + ") "%>

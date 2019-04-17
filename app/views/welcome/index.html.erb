@@ -30,4 +30,29 @@
       <p class="text-secondary"> No orders </p>
     <% end %>
   </div>
+  
+  <div class="pretty-block queue-block">
+        <h2>Current Order</h2>
+        
+        <% if not @ordersComplete.nil? %>
+        <h5>
+            <%= @ordersComplete.user.name.to_s %>
+        </h5>
+            
+            
+        <% @ordersComplete.drinks.each_with_index do |drink, i| %>
+            <p><%= "#" + i.to_s + ") "%>
+            
+            
+            <%= image_tag("pin" + (drink.id % 5).to_s + ".JPG", width: '100px') %>
+            <%= drink.name.to_s %>
+            
+            </p>
+        <% end %>
+    
+        
+        
+        <% end %>
+
+    </div>
 </div>
