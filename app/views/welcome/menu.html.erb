@@ -77,7 +77,7 @@
             <%= @ordersComplete.user.name.to_s %>
             
             
-        <% @ordersComplete.drinks.each do |drink, i| %>
+        <% @ordersComplete.drinks.each_with_index do |drink, i| %>
             <p><%= "#" + i + ") "%>
             
             
