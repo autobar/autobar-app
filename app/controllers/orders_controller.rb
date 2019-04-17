@@ -17,16 +17,17 @@ class OrdersController < ApplicationController
     end
     user.name = name
     user.phone_number = phone_number
+    user.save
     list = JSON.parse(params["order"]["list"])
     if list.length > 0
       puts "New Order!"
       new_order = Order.create
       new_order.user = user
-      
       list.each do |drink_id|
         puts "Listing drink order: " + drink_id.to_s
         new_order.drinks << Drink.find_by(id: drink_id)
       end
+      new_order.save
     end
     
     redirect_to root_path
