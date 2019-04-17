@@ -73,7 +73,7 @@ class OrdersController < ApplicationController
     @order.drinks.each do |drink|
       recipe = Hash.new
       drink.ingredients.each do |ingredient|
-        recipe[ingredient.name] = ingredient.amount
+        recipe[ingredient.pump.to_s] = ingredient.amount
       end
       @recipes << recipe
     end

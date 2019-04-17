@@ -54,12 +54,12 @@ Some setup must be done in order to get the app's functionality up and running.
       "name":string
     },
     {
-      "coke": double,
-      "rum": double
+      "1": double, //pumps 1-5
+      "3": double
     },
     {
-      "vodka": double,
-      "tonic water": double
+      "5": double,
+      "2": double
     },
     ... Rest of drinks
   ]
