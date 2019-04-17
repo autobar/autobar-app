@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   def create_from_json
     user = User.find_by(drivers_license: session[:dl])
     puts "WE IN IT"
+    puts user
     puts ""
     puts params
     puts params["order"]["list"]
