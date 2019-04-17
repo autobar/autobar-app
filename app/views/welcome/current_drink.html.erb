@@ -14,9 +14,8 @@
                 <p><%= "#" + i.to_s + ") "%>
                 
                 <%= image_tag("pin" + (drink.id % 5).to_s + ".JPG", width: '100px') %>
-                <br></br>
-                 <%= drink.name.to_s %> 
-                 <br></br><br></br>
+                
+                 <p> <%= drink.name.to_s %></p> 
                 
                 </p>
             <% end %>
