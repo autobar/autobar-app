@@ -78,7 +78,7 @@
             
             
         <% @ordersComplete.drinks.each_with_index do |drink, i| %>
-            <p><%= "#" + i + ") "%>
+            <p><%= "#" + i.to_s + ") "%>
             
             
             <%= image_tag("pin" + (drink.id % 5).to_s + ".JPG", width: '100px') %>
