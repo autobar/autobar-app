@@ -55,6 +55,10 @@ class WelcomeController < ApplicationController
     redirect_to welcome_menu_path
   end
   
+  def current_drink
+    @ordersComplete = Order.where(completed: true).reverse()[0]
+  end
+  
   private # ---------- PRIVATE ----------
 
   # whitelist all of the parameters passed in forms to create

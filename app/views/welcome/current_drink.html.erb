@@ -1,0 +1,29 @@
+<div style="display: flex; flex-wrap: wrap; width: 100%; justify-content: space-around;">
+    <div class="pretty-block queue-block" style="background: rgba(0, 0, 0, 0); padding-top: 10px;">
+        <p>Please place your cups in the slots designated by the yellow arrows and then slide your card to identify yourself!</p>
+    </div>
+    
+    <div class="pretty-block queue-block">
+        <h2>Current Order</h2>
+        
+        <% if not @ordersComplete.nil? %>
+            <h5>
+                <%= @ordersComplete.user.name.to_s %>
+            </h5>
+            <% @ordersComplete.drinks.each_with_index do |drink, i| %>
+                <p><%= "#" + i.to_s + ") "%>
+                
+                <%= image_tag("pin" + (drink.id % 5).to_s + ".JPG", width: '100px') %>
+                <br></br>
+                 <%= drink.name.to_s %> 
+                 <br></br><br></br>
+                
+                </p>
+            <% end %>
+        <% else %>
+            <p class="text-secondary">None</p>
+        <% end %>
+    </div>
+    
+</div>
+
