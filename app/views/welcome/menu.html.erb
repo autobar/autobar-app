@@ -2,7 +2,7 @@
     <div class="pretty-block fcol-4">
         <a href="<%= welcome_pickdrink_path %>">
             <span class="card" style="">
-                <img class="card-img-top" src="/images/placeholder_tile.svg" alt="Card image cap">
+                <%= image_tag("orderDrink.jpg", class: 'card-img-top', width: '100px', height: '100px') %>
                 <span class="card-body">
                     <h5 class="card-title">Order Drinks</h5>
                 </span>
@@ -13,7 +13,7 @@
     <div class="pretty-block fcol-4">
         <a href="<%= welcome_orders_path %>">
             <span class="card" style="">
-                <img class="card-img-top drink-card-top" src="/images/placeholder_tile.svg" alt="Card image cap">
+                <%= image_tag("myOrders.png", class: 'card-img-top', width: '100px', height: '100px') %>
                 <span class="card-body">
                     <h5 class="card-title">Your Orders</h5>
                 </span>
@@ -24,7 +24,7 @@
     <div class="pretty-block fcol-4">
         <a href="<%= drinks_path %>">
             <span class="card" style="">
-                <img class="card-img-top" src="/images/placeholder_tile.svg" alt="Card image cap">
+                <%= image_tag("drinksList.png", class: 'card-img-top', width: '100px', height: '100px') %>
                 <span class="card-body">
                     <h5 class="card-title">Drinks List</h5>
                 </span>
@@ -35,24 +35,38 @@
     <div class="pretty-block fcol-4">
         <a href="<%= welcome_edit_user_path %>">
             <span class="card" style="">
-                <img class="card-img-top" src="/images/placeholder_tile.svg" alt="Card image cap">
+                <%= image_tag("profile.png", class: 'card-img-top', width: '100px', height: '100px') %>
                 <span class="card-body">
                     <h5 class="card-title">Profile</h5>
                 </span>
             </span>
         </a>
     </div>
+
+
+    
+
     
     <div class="pretty-block fcol-3 queue-block">
         <h2>Queue</h2>
         <%  @orders.each do |order| %>
             <p><%= "#" + order.id.to_s + ") "%>
+            <%= image_tag("pin" + (order.id % 5).to_s + ".JPG", width: '100px') %>
+            
             <% if order.user %>
+            <% puts "yes" %>
                 <% if not order.user.name.empty? %>
-                    <%= order.user.name %>
+                    No name
+                    <%= order.user.name.to_s %>
                 <% else %>
-                    <%= order.user.phone_number %>
+                    No number
+                    <%= order.user.phone_number.to_s %>
                 <% end %>
+            <% end %>
+            
+            <% if order.id = '1' %>
+            
+               <% puts "yes" %>
             <% end %>
             </p>
         <% end %>
@@ -61,3 +75,4 @@
         <% end %>
     </div>
 </div>
+
