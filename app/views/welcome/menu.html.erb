@@ -78,7 +78,7 @@
         <% @ordersComplete.drinks.each do |drink| %>
             <p><%= "#" + drinks.id.to_s + ") "%>
             
-            <%= image_tag("pin" + (drinks.id % 5).to_s + ".JPG", width: '100px') %>
+            <%= image_tag("pin" + (drink.id % 5).to_s + ".JPG", width: '100px') %>
             
             </p>
         <% end %>
