@@ -14,12 +14,13 @@
       
       <div class="nav-bar">
         <div class="dropdown">
-          <% if @user %>
             <ul>
-              <li><%= link_to "Home", root_path %></li>
-              <li><%= link_to "Drinks", drinks_path %></li>
-              <% if @user.is_admin %>
-                <li><%= link_to "Ingredients", ingredients_path %></li>
+              <% if @user %>
+                <li><%= link_to "Home", root_path %></li>
+                <li><%= link_to "Drinks", drinks_path %></li>
+                <% if @user.is_admin %>
+                  <li><%= link_to "Ingredients", ingredients_path %></li>
+                <% end %>
               <% end %>
               <li>
                 <% if session[:dl] %>
@@ -27,7 +28,6 @@
                 <% end %>
               </li>
             </ul>
-          <% end %>
         </div>
       </div>
     </div>

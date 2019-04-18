@@ -3,10 +3,10 @@
         "name": "Screwdriver",
         "ingredients":{
             "liquors": {
-                "vodka": 2
+                "water": 2
             },
             "mixers": {
-                "orange juice": 5
+                "lemonade": 5
             }
         },
         "image": "screwdriver.jpg"
@@ -15,7 +15,7 @@
         "name": "Jack and Coke",
         "ingredients":{
             "liquors": {
-                "jack daniels": 1
+                "water": 1
             },
             "mixers":{
                 "coke": 6
@@ -27,7 +27,7 @@
         "name": "Coke and Rum",
         "ingredients":{
             "liquors": {
-                "rum": 3
+                "water": 3
             },
             "mixers":{
                 "coke": 4
@@ -39,72 +39,60 @@
         "name": "Limey Dream",
         "ingredients":{
             "liquors": {
-                "vodka": 1
+                "water": 1
             },
             "mixers":{
                 "sprite": 3,
-                "lime juice": 3
+                "lemonade": 3
             }
         },
         "image": "limeydream.jpg"
     },
     "4":{
-        "name": "Gin and Tonic",
+        "name": "Lemony Sprite",
         "ingredients":{
             "liquors": {
-                "gin": 2
+                "water": 2
             },
             "mixers":{
-                "tonic water": 2,
-                "lime juice": 3
+                "sprite": 2,
+                "lemonade": 3
             }
         },
         "image": "ginntonic.jpg"
     },
     "5":{
-        "name": "Vodka and Tonic Water",
+        "name": "Diluted Sprite",
         "ingredients":{
             "liquors": {
-                "vodka": 2
+                "water": 2
             },
             "mixers":{
-                "tonic water": 5
+                "sprite": 5
             }
         },
         "image": "vodkatonic.jpg"
     },
     "6":{
-        "name": "Moscow Rule",
+        "name": "Mimosa",
         "ingredients":{
             "liquors": {
-                "vodka": 2
+                "water": 2
             },
             "mixers":{
-                "ginger beer": 2,
-                "lime juice": 3
+                "cranberry juice": 5
             }
         }
     },
     "7":{
-        "name": "Mimosa",
+        "name": "Spezi",
         "ingredients":{
             "liquors": {
-                "champagne": 2
+                "water": 1
             },
             "mixers":{
-                "orange juice": 5
-            }
-        }
-    },
-    "8":{
-        "name": "White Russian",
-        "ingredients":{
-            "liquors": {
-                "vodka": 2
-            },
-            "mixers":{
-                "coffee": 3,
-                "cream": 2
+                "coke": 3,
+                "fanta": 3
             }
         }
     }
