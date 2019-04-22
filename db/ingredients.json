@@ -1,12 +1,12 @@
 {
     "liquor":{
-        "water": 1
+        "club soda": 1
     },
     "mixer":{
         "coke": 2,
         "sprite": 3,
         "fanta": 4,
         "cranberry juice": 5,
-        "lemonade": 6
+        "lime juice": 6
     }
 }

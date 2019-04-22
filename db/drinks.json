@@ -1,33 +1,9 @@
 {
     "0":{
-        "name": "Screwdriver",
-        "ingredients":{
-            "liquors": {
-                "water": 2
-            },
-            "mixers": {
-                "lemonade": 5
-            }
-        },
-        "image": "screwdriver.jpg"
-    },
-    "1":{
-        "name": "Jack and Coke",
-        "ingredients":{
-            "liquors": {
-                "water": 1
-            },
-            "mixers":{
-                "coke": 6
-            }
-        },
-        "image": "jackncoke.jpg"
-    },
-    "2":{
         "name": "Coke and Rum",
         "ingredients":{
             "liquors": {
-                "water": 3
+                "club soda": 3
             },
             "mixers":{
                 "coke": 4
@@ -35,64 +11,59 @@
         },
         "image": "cokenrum.jpg"
     },
+    "1":{
+        "name": "Cranberry Sprite",
+        "ingredients":{
+            "mixers":{
+                "sprite": 5,
+                "cranberry juice": 4
+            }
+        },
+        "image": "ginntonic.jpg"
+    },
+    "2":{
+        "name": "Jack and Coke",
+        "ingredients":{
+            "liquors": {
+                "club soda": 1
+            },
+            "mixers":{
+                "coke": 6
+            }
+        },
+        "image": "ginntonic.jpg"
+    },
     "3":{
         "name": "Limey Dream",
         "ingredients":{
             "liquors": {
-                "water": 1
+                "club soda": 2
             },
             "mixers":{
-                "sprite": 3,
-                "lemonade": 3
+                "sprite": 4,
+                "lime juice": 2
             }
         },
         "image": "limeydream.jpg"
     },
     "4":{
-        "name": "Lemony Sprite",
+        "name": "Mimosa",
         "ingredients":{
             "liquors": {
-                "water": 2
+                "club soda": 2
             },
             "mixers":{
-                "sprite": 2,
-                "lemonade": 3
-            }
-        },
-        "image": "ginntonic.jpg"
-    },
-    "5":{
-        "name": "Diluted Sprite",
-        "ingredients":{
-            "liquors": {
-                "water": 2
-            },
-            "mixers":{
-                "sprite": 5
+                "fanta": 5
             }
         },
         "image": "vodkatonic.jpg"
     },
-    "6":{
-        "name": "Mimosa",
-        "ingredients":{
-            "liquors": {
-                "water": 2
-            },
-            "mixers":{
-                "cranberry juice": 5
-            }
-        }
-    },
-    "7":{
+    "5":{
         "name": "Spezi",
         "ingredients":{
-            "liquors": {
-                "water": 1
-            },
             "mixers":{
-                "coke": 3,
-                "fanta": 3
+                "coke": 4,
+                "fanta": 4
             }
         }
     }
