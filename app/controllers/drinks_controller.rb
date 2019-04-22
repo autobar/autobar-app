@@ -97,7 +97,7 @@ class DrinksController < ApplicationController
   def remove_image
     @user = User.find_by(drivers_license: session[:dl])
     @drink = Drink.find(params[:id])
-    if @drink.user == @user
+    if @drink.user == @user or @user.is_admin
       @drink.image.purge
       flash[:success] = "Successfully removed image from #{@drink.name}"
     else
